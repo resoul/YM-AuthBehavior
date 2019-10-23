@@ -84,7 +84,7 @@ class AuthBehavior extends Behavior
         $request = implode('/', $controllers);
 
         foreach ($this->whiteList as $value) {
-            if (!is_array($value) && ($strlen = (int) strlen($value) + 1) && ($value == substr($request, -$strlen))) {
+            if (!is_array($value) && ($value == substr($request, -strlen($value)))) {
                 return true;
             }
         }
